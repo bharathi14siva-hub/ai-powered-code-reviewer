@@ -23,6 +23,7 @@ def main():
         "--mode",
         choices=["quick", "thorough", "security-focused"],
         default="thorough",
+        help="Select the review mode",
     )
 
     parser.add_argument(
@@ -41,6 +42,10 @@ def main():
     try:
         code = input_path.read_text(encoding="utf-8")
         filename = input_path.name
+        is_diff = args.diff is not None
+
+        if not code.strip():
+            raise ValueError("Input file is empty.")
 
         if args.demo:
             print("\nGenerating DEMO review...")
@@ -52,9 +57,16 @@ def main():
                     "Claude API key missing. Use --demo for a sample review."
                 )
 
-            print("\nSending code to Claude for review...")
+            print("\nSending input to Claude for review...")
+
             reviewer = CodeReviewer()
-            report = reviewer.review_code(code, filename, args.mode)
+
+            report = reviewer.review_code(
+                code=code,
+                filename=filename,
+                mode=args.mode,
+                is_diff=is_diff,
+            )
 
         json_file, markdown_file = save_report(report)
 

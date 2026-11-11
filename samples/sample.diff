@@ -1,0 +1,11 @@
+diff --git a/sample.py b/sample.py
+index 1234567..abcdefg 100644
+--- a/sample.py
++++ b/sample.py
+@@ -1,5 +1,8 @@
+ def divide(a, b):
+-    return a / b
++    if b == 0:
++        return None
++    result = a / b
++    return result

@@ -1,23 +1,17 @@
 
-import os
-
 password = "admin123"
 
 
-def divide_numbers(a, b):
-    result = a / b
-    print(result)
-
-
-def get_user(user_input):
-    query = "SELECT * FROM users WHERE name = '" + user_input + "'"
+def get_user(username):
+    query = "SELECT * FROM users WHERE username = '" + username + "'"
     return query
 
 
 def read_file(filename):
-    file = open(filename, "r")
-    data = file.read()
+    with open(filename, "r", encoding="utf-8") as file:
+        data = file.read()
     return data
 
 
-divide_numbers(10, 2)
+def divide(a, b):
+    return a / b

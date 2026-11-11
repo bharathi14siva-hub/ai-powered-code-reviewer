@@ -1,6 +1,6 @@
 # AI Code Review Report
 
-**File:** sample.py
+**File:** sample.diff
 **Review Mode:** thorough
 **Overall Score:** 65/100
 
