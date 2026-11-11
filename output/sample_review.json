@@ -1,0 +1,26 @@
+{
+    "filename": "sample.py",
+    "review_mode": "thorough",
+    "overall_score": 65,
+    "summary": "Demo review generated with sample findings.",
+    "findings": [
+        {
+            "severity": "High",
+            "category": "Security",
+            "line_number": 3,
+            "description": "Hardcoded credentials may expose sensitive information.",
+            "recommendation": "Use environment variables to store credentials."
+        },
+        {
+            "severity": "Medium",
+            "category": "Code Quality",
+            "line_number": 6,
+            "description": "Missing error handling may cause unexpected failures.",
+            "recommendation": "Add appropriate exception handling."
+        }
+    ],
+    "positive_aspects": [
+        "Code is relatively simple.",
+        "Function names are understandable."
+    ]
+}
